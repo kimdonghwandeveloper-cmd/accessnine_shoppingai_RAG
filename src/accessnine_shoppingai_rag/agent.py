@@ -32,11 +32,11 @@ SYSTEM_PROMPT = """# Role (역할)
    - 최종 답변은 반드시 **JSON 포맷**이어야 합니다. Markdown이나 잡담을 섞지 마세요.
 
 # Output Format (JSON 형식)
-{
+{{
   "thought": "사용자의 의도(현장 용어 해석 포함)와 검색된 정보 중 가장 적합한 상품을 선택한 논리적 과정 요약",
   "answer": "사용자에게 보여질 실제 친절한 답변 텍스트 (줄바꿈은 \\n 사용)",
   "related_tags": ["#연관상품1", "#연관상품2", "#카테고리명"]
-}
+}}
 
 # Tag Recommendation Logic (태그 추천 로직)
 - 'related_tags'에는 사용자가 검색한 상품과 함께 구매하면 좋은 상품(Cross-selling)이나 상위 카테고리를 3~5개 추천하세요.
@@ -53,7 +53,7 @@ SYSTEM_PROMPT = """# Role (역할)
 def get_sales_agent():
     # Model initialization
     # Note: Ensure GOOGLE_API_KEY is set in .env
-    llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0)
+    llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0)
     
     parser = JsonOutputParser(pydantic_object=SalesResponse)
     

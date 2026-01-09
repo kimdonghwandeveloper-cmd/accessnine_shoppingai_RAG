@@ -64,6 +64,8 @@ def process_query(query: str, context: str):
         response = agent.invoke({"context": context, "question": query})
         print(json.dumps(response, ensure_ascii=False, indent=2))
     except Exception as e:
+        import traceback
+        traceback.print_exc()
         print(f"Error generating response: {e}", file=sys.stderr)
 
 if __name__ == "__main__":
