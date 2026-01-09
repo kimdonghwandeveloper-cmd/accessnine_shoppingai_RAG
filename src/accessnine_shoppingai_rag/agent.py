@@ -8,6 +8,33 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# --- Mock Context Data ---
+MOCK_PRODUCT_DB = """
+[상품 ID: 101]
+상품명: 강력 콘크리트 보수제 (FastFix 300)
+카테고리: 보수/방수
+특징: 30분 초속경, 고강도, 크랙 보수용
+가격: 15,000원
+
+[상품 ID: 102]
+상품명: 전문가용 미장 흙손 (Stainless 300mm)
+카테고리: 미장공구
+특징: 녹슬지 않는 스테인리스, 편안한 그립감
+가격: 8,500원
+
+[상품 ID: 103]
+상품명: 다목적 수성 프라이머 (PrimeOne 4L)
+카테고리: 페인트/도장
+특징: 강력한 부착력, 냄새 적음, 빠른 건조
+가격: 22,000원
+
+[상품 ID: 104]
+상품명: 고강도 반생 (10번선) 1묶음
+카테고리: 철물/자재
+특징: 결속력 우수, 현장 필수 자재, 부식 방지 처리
+가격: 45,000원
+"""
+
 # --- Pydantic Models for Output Structure ---
 class SalesResponse(BaseModel):
     thought: str = Field(description="사용자의 의도(현장 용어 해석 포함)와 검색된 정보 중 가장 적합한 상품을 선택한 논리적 과정 요약")
